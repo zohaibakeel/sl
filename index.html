@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Slot Machine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="slot-machine">
+    <div class="top">SLOT MACHINE</div>
+    <div class="header-light" id="headerLight"></div>
+    <div class="lights">
+        <div class="light" id="light1"></div>
+        <div class="light" id="light2"></div>
+        <div class="light" id="light3"></div>
+    </div>
+    <div class="screen">
+        <canvas id="slotMachineCanvas" width="270" height="280"></canvas>
+    </div>
+    <div class="bet">
+        <input type="number" id="betAmount" placeholder="Bet Amount" min="1">
+        <div class="button" id="spinButton">SPIN</div>
+    </div>
+    <div class="balance">Your Balance: <span id="balanceAmount">100.00</span></div>
+    <div class="output-paper">
+        <div class="result"></div>
+        <div class="close-button" onclick="closeOutputPaper()">×</div>
+    </div>
+    <div class="bottom"></div>
+</div>
+<audio id="spinSound" src="spin-sound1.mp3"></audio>
+<script src="script.js"></script>
+</body>
+</html>

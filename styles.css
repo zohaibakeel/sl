@@ -1,0 +1,233 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.slot-machine {
+    position: relative;
+    width: 300px;
+    height: 500px;
+    background-color: #222;
+    border-radius: 25px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+.slot-machine .top,
+.slot-machine .bottom {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    background-color: #444;
+    border-radius: 25px 25px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.slot-machine .top {
+    top: 0;
+}
+
+.slot-machine .bottom {
+    bottom: 0;
+}
+
+.slot-machine .screen {
+    position: absolute;
+    top: 160px;
+    left: 20px;
+    right: 20px;
+    height: 70px;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.slot-machine .button {
+    position: absolute;
+    bottom: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 50px;
+    background-color: #f00;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+.slot-machine .button:hover {
+    background-color: #c00;
+}
+
+.slot-machine .lights {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+}
+
+.light {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #600;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.light.on {
+    background-color: #f00;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 1);
+}
+
+.slot-machine .bet {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slot-machine .bet input {
+    width: 100px;
+    height: 40px;
+    margin-bottom: 190px;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.slot-machine .output-paper {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 0;
+    overflow: hidden;
+    background-color: #f7f7f7;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: top 1s ease-out, height 1s ease-out, opacity 0.5s ease-in;
+}
+
+.slot-machine .output-paper.show {
+    top: 130px;
+    height: 200px;
+    opacity: 1;
+}
+
+.slot-machine .output-paper.win {
+    background-color: #fff;
+    border-color: #0f0;
+    color: #333;
+}
+
+.slot-machine .output-paper.lose {
+    background-color: #333;
+    border-color: #f00;
+    color: #fff;
+}
+
+.slot-machine .output-paper.win .result,
+.slot-machine .output-paper.lose .result {
+    font-size: 28px;
+}
+
+.slot-machine .output-paper .multiplier {
+    font-weight: bold;
+}
+
+.slot-machine .output-paper .close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 22px;
+    color: #f00;
+}
+
+.header-light {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ff0;
+    box-shadow: 0 0 7px #ff0;
+    animation: blink 1s infinite;
+    display: none;
+}
+
+.header-light.blinking {
+    display: block;
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+
+.slot-machine .balance {
+    position: absolute;
+    top: 380px; /* Adjust this value as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    background-color: #333; /* Background color for the entire balance div */
+    padding: 5px 10px;
+    border-radius: 10px;
+    white-space: nowrap; /* Ensure text doesn't wrap */
+}
+
+.slot-machine #balanceAmount {
+    background-color: #fff; /* White background for the balance amount */
+    color: #000; /* Black text color for the balance amount */
+    padding: 3px 5px;
+    border-radius: 5px;
+    margin-left: 5px; /* Space between the text and the balance amount */
+}
